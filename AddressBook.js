@@ -135,7 +135,7 @@ function addContact(firstName,lastName,address,city,state,zipCode,phoneNumber,eM
 }
 
 try {
-    addContact("Krishna","Maddimsetti","YallavariVeedhi","Gopalapuram","AndhraPradesh",533274,"91 9874561234","maddimsetti@gmail.com");
+    addContact("Krishna","Maddimsetti","YallavariVeedhi","Ravulapalem","AndhraPradesh",533274,"91 9874561234","maddimsetti@gmail.com");
     addContact("Balarama","Maddimsetti","NearRamalayam","Gopalapuram","AndhraPradesh",545478,"91 9871211234","maddimsetti143@gmail.com");
     addContact("Pallavi","Krishna","NearSaiBabaTemple","Ravulapalem","AndhraPradesh",533147,"91 4567891234","pallavi@gmail.com");
     addContact("Balarama","Krishna","NearRamalayam","Gopalapuram","AndhraPradesh",545478,"91 9871211234","maddimsetti143@gmail.com");
@@ -194,5 +194,16 @@ console.log(result2);
 
 /**
  * @description To sort the entries in the Address book alphabetically by Person’s name
-**/
+ **/
 console.log("The Contacts Using FirstName to Sort in  Alphabetical order : \n" +addressBook.sort());
+
+/**
+ * @description To sort the entries in the address book by City, State, or Zip 
+ **/
+function sortByPersonCityStateZip() {
+    let sortedArray = addressBook;
+    sortedArray.sort((a, b) => a.city.toLowerCase().localeCompare(b.city.toLowerCase()) || a.state.toLowerCase().localeCompare(b.state.toLowerCase()) || a.zipCode.localeCompare.b.zipCode);
+    console.log("\nPrinting sorted array After Sorting By City, State, Zip Code : ");
+    sortedArray.forEach(person => console.log(person.toString()));
+}
+sortByPersonCityStateZip();
