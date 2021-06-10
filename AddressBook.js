@@ -179,3 +179,9 @@ console.log("The Contacts in AddressBook found by Searching the State : \n" ); /
 console.log(filterArray(addressBook,"state", "AndhraPradesh"));
 console.log("The Contacts in AddressBook found by Searching the City : \n" );  // By City
 console.log(filterArray(addressBook,"city","Gopalapuram"));
+
+/**
+ * @description Find the contacts in the AddressBook To View By  City or State
+ **/
+const result2 = addressBook.filter( ({ city , state }) => city === "Ravulapalem" || state == "AndhraPradesh");
+console.log(result2);
