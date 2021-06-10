@@ -118,9 +118,20 @@ class AddressBook {
 }
 
 console.log("Welcome Message To AddressBook System JavaScript");
-
 try {
     let addressBook = new AddressBook("Krishna","Maddimsetti","YallavariVeedhi","Gopalapuram","AndhraPradesh",533274,"91 9874561234","maddimsetti@gmail.com");
+    console.log(addressBook.toString());
+} catch(e) {
+    console.error(e);
+}
+
+let addressBook = new Array();
+function addContact(firstName,lastName,address,city,state,zipCode,phoneNumber,eMailId) {
+    let contact = new AddressBook(firstName,lastName,address,city,state,zipCode,phoneNumber,eMailId);
+    addressBook.push(contact); 
+}
+try {
+    addContact("Balarama","Maddimsetti","NearRamalayam","Gopalapuram","AndhraPradesh",545478,"91 98741211234","maddimsetti143@gmail.com");
     console.log(addressBook.toString());
 } catch(e) {
     console.error(e);
