@@ -139,7 +139,7 @@ try {
 }
 
 /**
- * @description Find out the Contact that we want to Update
+ * @description Find out the Contact that we want to Update and then Updated
  **/
 const result = addressBook.find( ({ firstName }) => firstName === "Pallavi");
 console.log("Before Updation of the Contact : \n");
@@ -147,3 +147,12 @@ console.log(result);
 result.firstName = "Pallavikrishna";
 result.city = "Ubalanka";
 console.log("After Updation Of the Contact :\n " +result.toString());
+
+/**
+ * @description Find out the Contact that we want to delete and then Deleted
+ **/
+ const result1 = addressBook.find( ({ firstName }) => firstName === "Balarama");
+ const index = addressBook.indexOf(result1);
+ addressBook.splice(index, 1);     //Deleting the contact 
+ console.log("After Deletion, The Length of the AddressBook : " +addressBook.length);
+ console.log("After Deletion, The AddressBook Contact List : " +addressBook.toString());
