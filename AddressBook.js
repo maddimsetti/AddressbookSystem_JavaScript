@@ -138,7 +138,7 @@ try {
     addContact("Krishna","Maddimsetti","YallavariVeedhi","Gopalapuram","AndhraPradesh",533274,"91 9874561234","maddimsetti@gmail.com");
     addContact("Balarama","Maddimsetti","NearRamalayam","Gopalapuram","AndhraPradesh",545478,"91 9871211234","maddimsetti143@gmail.com");
     addContact("Pallavi","Krishna","NearSaiBabaTemple","Ravulapalem","AndhraPradesh",533147,"91 4567891234","pallavi@gmail.com");
-    addContact("Balarama","Maddimsetti","NearRamalayam","Gopalapuram","AndhraPradesh",545478,"91 9871211234","maddimsetti143@gmail.com");
+    addContact("Balarama","Krishna","NearRamalayam","Gopalapuram","AndhraPradesh",545478,"91 9871211234","maddimsetti143@gmail.com");
     console.log(addressBook.toString());
 } catch(e) {
     console.error(e);
@@ -191,3 +191,8 @@ console.log(result2);
  **/
  const result3 = addressBook.filter( ({ city , state }) => city === "Gopalapuram" || state == "AndhraPradesh").reduce((contactCount,{city,state}) => contactCount += 1, 0);
  console.log("The Number of Contacts i.e.,Count by State or City in AddressBook : " +result3);
+
+/**
+ * @description To sort the entries in the Address book alphabetically by Person’s name
+**/
+console.log("The Contacts Using FirstName to Sort in  Alphabetical order : \n" +addressBook.sort());
