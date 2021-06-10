@@ -117,22 +117,33 @@ class AddressBook {
     }
 }
 
-console.log("Welcome Message To AddressBook System JavaScript");
+console.log("Welcome Message To AddressBook System JavaScript"); //Welcome Message to AddressBook
+
+let addressBook = new Array();   //Intialize the Array List
+
+/**
+ * @description Created function to Add Contacts to Array List
+ **/
+function addContact(firstName,lastName,address,city,state,zipCode,phoneNumber,eMailId) {
+    let contacts = new AddressBook(firstName,lastName,address,city,state,zipCode,phoneNumber,eMailId);
+    addressBook.push(contacts);  //Adding Contacts to ArrayList
+}
+
 try {
-    let addressBook = new AddressBook("Krishna","Maddimsetti","YallavariVeedhi","Gopalapuram","AndhraPradesh",533274,"91 9874561234","maddimsetti@gmail.com");
+    addContact("Krishna","Maddimsetti","YallavariVeedhi","Gopalapuram","AndhraPradesh",533274,"91 9874561234","maddimsetti@gmail.com");
+    addContact("Balarama","Maddimsetti","NearRamalayam","Gopalapuram","AndhraPradesh",545478,"91 9871211234","maddimsetti143@gmail.com");
+    addContact("Pallavi","Krishna","NearSaiBabaTemple","Ravulapalem","AndhraPradesh",533147,"91 4567891234","pallavi@gmail.com");
     console.log(addressBook.toString());
 } catch(e) {
     console.error(e);
 }
 
-let addressBook = new Array();
-function addContact(firstName,lastName,address,city,state,zipCode,phoneNumber,eMailId) {
-    let contact = new AddressBook(firstName,lastName,address,city,state,zipCode,phoneNumber,eMailId);
-    addressBook.push(contact); 
-}
-try {
-    addContact("Balarama","Maddimsetti","NearRamalayam","Gopalapuram","AndhraPradesh",545478,"91 98741211234","maddimsetti143@gmail.com");
-    console.log(addressBook.toString());
-} catch(e) {
-    console.error(e);
-}
+/**
+ * @description Find out the Contact that we want to Update
+ **/
+const result = addressBook.find( ({ firstName }) => firstName === "Pallavi");
+console.log("Before Updation of the Contact : \n");
+console.log(result);
+result.firstName = "Pallavikrishna";
+result.city = "Ubalanka";
+console.log("After Updation Of the Contact :\n " +result.toString());
