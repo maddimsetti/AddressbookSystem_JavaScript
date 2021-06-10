@@ -126,6 +126,7 @@ let addressBook = new Array();   //Intialize the Array List
  **/
 function addContact(firstName,lastName,address,city,state,zipCode,phoneNumber,eMailId) {
     let contacts = new AddressBook(firstName,lastName,address,city,state,zipCode,phoneNumber,eMailId);
+    //Checking Dulpicate Contact 
     if(addressBook.some(duplicate=> duplicate.firstName == firstName && duplicate.lastName == lastName)){
         console.log("The Contact " +addressBook.firstName+ " is already exist in AddressBook");
         return;
@@ -166,3 +167,15 @@ console.log("After Deletion, The AddressBook Contact List : " +addressBook.toStr
  **/
  let count = addressBook.reduce(count => count += 1, 0);
  console.log("Number Of Contacts in the AddressBook is : " +count);
+
+ /**
+ * @description Find the contacts in the AddressBook By Search with City or State
+ **/
+const filterArray = (array, fields, value) => {
+    fields = Array.isArray(fields) ? fields : [fields];
+    return array.filter((item) => fields.some((field) => item[field] === value));
+}
+console.log("The Contacts in AddressBook found by Searching the State : \n" ); //By State
+console.log(filterArray(addressBook,"state", "AndhraPradesh"));
+console.log("The Contacts in AddressBook found by Searching the City : \n" );  // By City
+console.log(filterArray(addressBook,"city","Gopalapuram"));
