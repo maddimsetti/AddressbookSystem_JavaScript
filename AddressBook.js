@@ -24,49 +24,89 @@ class AddressBook {
         return this._firstName;
     }
     set firstName(firstName) {
-        this._firstName = firstName;
+        let firstNameRegex = RegExp("^[A-Z]{1}[a-z]{3,}$");
+        if(firstNameRegex.test(firstName)) {
+            this._firstName = firstName;
+        } else {
+            throw "First Name is Incorrect. Please Enter Valid First Name";
+        }
     }
     get lastName() {
         return this._lastName;
     }
     set lastName(lastName) {
-        return this._lastName = lastName;
+        let lastNameRegex = RegExp("^[A-Z]{1}[a-z]{3,}$");
+        if(lastNameRegex.test(lastName)) {
+            this._lastName = lastName;
+        } else {
+            throw "Last Name is Incorrect. Please Enter Valid Last Name";
+        }
     }
     get address() {
         return this._address;
     }
     set address(address) {
-        this._address = address;
+        let addressRegex = RegExp("^[A-Z]{1}[a-zA-z0-9]{4,}$");
+        if(addressRegex.test(address)) {
+            this._address = address;
+        } else {
+            throw "Address is Incorrect. Please Enter Valid Address";
+        }
     }
     get city() {
         return this._city;
     }
     set city(city) {
-        return this._city = city;
+        let cityRegex = RegExp("^[A-Z]{1}[a-z]{4,}$");
+        if(cityRegex.test(city)) {
+            this._city = city;
+        } else {
+            throw "City is Incorrect. Please Enter Valid City";
+        }
     }
     get state() {
         return this._state;
     }
     set state(state) {
-        this._state = state;
+        let stateRegex = RegExp("^[A-Z]{1}[a-zA-z]{3,}$");
+        if(stateRegex.test(state)) {
+            this._state = state;
+        } else {
+            throw "State is Incorrect. Please Enter Valid State";
+        }
     }
     get zipCode() {
         return this._zipCode;
     }
     set zipCode(zipCode) {
-        return this._zipCode = zipCode;
+        let zipCodeRegex = RegExp("^[1-9]{1}[0-9]{5}$");
+        if(zipCodeRegex.test(zipCode)) {
+            this._zipCode = zipCode;
+        } else {
+            throw "Zip Code is Incorrect. Please Enter Valid Zip Code";
+        }
     }
     get phoneNumber() {
         return this._phoneNumber;
     }
     set phoneNumber(phoneNumber) {
-        this._phoneNumber = phoneNumber;
+        let phoneNumberRegex = RegExp("^[1-9]{2} [1-9][0-9]{9}$");
+        if(phoneNumberRegex.test(phoneNumber)) {
+            this._phoneNumber = phoneNumber;
+        } else {
+            throw "Phone Number is Incorrect. Please Enter Valid Phone Number";
+        }
     }
     get eMailId() {
         return this._eMailId;
     }
     set eMailId(eMailId) {
-        return this._eMailId = eMailId;
+        let eMailIdRegex = RegExp("^[a-z0-9]+(([.+-_][a-z0-9])?)+(@[a-z0-9]{1})+(.[a-z]{3,4})+((.[a-z]{2})?)$");
+        if(eMailIdRegex.test(eMailId)) {
+            this._eMailId = eMailId;
+        } else {
+            throw "Email Address is Incorrect. Please Enter Valid Email Address";
+        }
     }
  
     //method
@@ -78,5 +118,10 @@ class AddressBook {
 }
 
 console.log("Welcome Message To AddressBook System JavaScript");
-let addressBook = new AddressBook("Krishna","Maddimsetti","8-37,Yallavari Veedhi","Gopalapuram","Andhra Pradesh",533274,"9874561234","maddimsetti@gmail.com");
-console.log(addressBook.toString());
+
+try {
+    let addressBook = new AddressBook("Krishna","Maddimsetti","YallavariVeedhi","Gopalapuram","AndhraPradesh",533274,"91 9874561234","maddimsetti@gmail.com");
+    console.log(addressBook.toString());
+} catch(e) {
+    console.error(e);
+}
