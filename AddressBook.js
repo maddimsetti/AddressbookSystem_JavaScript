@@ -151,8 +151,13 @@ console.log("After Updation Of the Contact :\n " +result.toString());
 /**
  * @description Find out the Contact that we want to delete and then Deleted
  **/
- const result1 = addressBook.find( ({ firstName }) => firstName === "Balarama");
- const index = addressBook.indexOf(result1);
- addressBook.splice(index, 1);     //Deleting the contact 
- console.log("After Deletion, The Length of the AddressBook : " +addressBook.length);
- console.log("After Deletion, The AddressBook Contact List : " +addressBook.toString());
+const result1 = addressBook.find( ({ firstName }) => firstName === "Balarama");
+const index = addressBook.indexOf(result1);
+addressBook.splice(index, 1);     //Deleting the contact
+console.log("After Deletion, The AddressBook Contact List : " +addressBook.toString());
+
+/**
+ * @description Find the numbers of contacts in the AddressBook using Reduce function
+ **/
+ let count = addressBook.reduce(count => count += 1, 0);
+ console.log("Number Of Contacts in the AddressBook is : " +count);
