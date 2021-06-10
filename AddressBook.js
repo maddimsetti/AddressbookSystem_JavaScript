@@ -126,6 +126,10 @@ let addressBook = new Array();   //Intialize the Array List
  **/
 function addContact(firstName,lastName,address,city,state,zipCode,phoneNumber,eMailId) {
     let contacts = new AddressBook(firstName,lastName,address,city,state,zipCode,phoneNumber,eMailId);
+    if(addressBook.some(duplicate=> duplicate.firstName == firstName && duplicate.lastName == lastName)){
+        console.log("The Contact " +addressBook.firstName+ " is already exist in AddressBook");
+        return;
+    }
     addressBook.push(contacts);  //Adding Contacts to ArrayList
 }
 
@@ -133,6 +137,7 @@ try {
     addContact("Krishna","Maddimsetti","YallavariVeedhi","Gopalapuram","AndhraPradesh",533274,"91 9874561234","maddimsetti@gmail.com");
     addContact("Balarama","Maddimsetti","NearRamalayam","Gopalapuram","AndhraPradesh",545478,"91 9871211234","maddimsetti143@gmail.com");
     addContact("Pallavi","Krishna","NearSaiBabaTemple","Ravulapalem","AndhraPradesh",533147,"91 4567891234","pallavi@gmail.com");
+    addContact("Balarama","Maddimsetti","NearRamalayam","Gopalapuram","AndhraPradesh",545478,"91 9871211234","maddimsetti143@gmail.com");
     console.log(addressBook.toString());
 } catch(e) {
     console.error(e);
