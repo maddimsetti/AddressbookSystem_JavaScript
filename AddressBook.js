@@ -185,3 +185,9 @@ console.log(filterArray(addressBook,"city","Gopalapuram"));
  **/
 const result2 = addressBook.filter( ({ city , state }) => city === "Ravulapalem" || state == "AndhraPradesh");
 console.log(result2);
+
+/**
+ * @description To get number of contact persons i.e. count by City or State
+ **/
+ const result3 = addressBook.filter( ({ city , state }) => city === "Gopalapuram" || state == "AndhraPradesh").reduce((contactCount,{city,state}) => contactCount += 1, 0);
+ console.log("The Number of Contacts i.e.,Count by State or City in AddressBook : " +result3);
